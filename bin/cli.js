@@ -17,21 +17,32 @@ const runCommand = (command) => {
 };
 
 const appName = process.argv[2];
-
 if (!appName) {
   console.log(chalk.red('Please specify the app name.'));
   throw new Error('APP_NAME_MISSING');
 }
 
 const appDirectory = fs.realpathSync(process.cwd());
-const source = path.resolve(__dirname, '../templates/templateReact');
+const templateName = yargs.argv['template'];
+const language = yargs.argv['language'];
+let templatePath = 'templateReact';
+
+if (templateName === 'apollo-client') {
+  templatePath = 'templateReactApolloClient';
+}
+
+if (language === 'angular') {
+  templatePath = 'templateAngular';
+}
+
+const source = path.resolve(__dirname, `../templates/${templatePath}`);
 const destination = path.resolve(appDirectory, appName);
 
 console.log(
   chalk.green(
-    `Cloning the ${chalk.magenta(
-      'Custom React JS tempalte'
-    )} repository with name ${chalk.cyan(appName)} \n`
+    `Cloning the ${chalk.magenta('Custom Tempalte')} with name ${chalk.cyan(
+      appName
+    )} \n`
   )
 );
 
@@ -59,3 +70,11 @@ fs.copy(source, destination)
     console.log(chalk.red('An error occurred while copying the folder.'));
     throw new Error(err);
   });
+
+// yargs.command({
+//   command: 'add',
+//   describe: 'Add a new data ',
+//   handler: function () {
+//     console.log('Adding a new data successfully!');
+//   },
+// });
