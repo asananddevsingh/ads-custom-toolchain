@@ -1,6 +1,6 @@
 {
-  "name": "ads-custom-toolchain",
-  "version": "2.0.0",
+  "name": "ads-custom-toolchains",
+  "version": "1.0.0",
   "description": "Anand Dev's Custom Toolchain Collections",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,7 +8,7 @@
   "author": "Anand Dev Singh",
   "license": "ISC",
   "bin": {
-    "ads-custom-toolchain": "bin/cli.js"
+    "ads-custom-toolchains": "bin/cli.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",

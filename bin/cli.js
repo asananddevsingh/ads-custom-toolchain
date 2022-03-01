@@ -35,6 +35,8 @@ if (language === 'angular') {
   templatePath = 'templateAngular';
 }
 
+console.log(chalk.blueBright(`\nTemplate Name: ${templatePath}\n`));
+
 const source = path.resolve(__dirname, `../templates/${templatePath}`);
 const destination = path.resolve(appDirectory, appName);
 
